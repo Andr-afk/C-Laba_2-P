@@ -1,0 +1,6 @@
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\bin\Debug\PNumber.exe.config
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\bin\Debug\PNumber.exe
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\bin\Debug\PNumber.pdb
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\obj\Debug\PNumber_test.csprojAssemblyReference.cache
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\obj\Debug\PNumber.exe
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PNumber\obj\Debug\PNumber.pdb
