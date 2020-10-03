@@ -40,6 +40,135 @@ namespace PNumber
         }
 
 
+        public static int translatorTo10(string value, int base_value)
+        {
+            int result = 0;
+            string[] val = SplitString(value);
+            int n;
+
+            if (base_value > 10)
+            {
+                for(int i = 0; i < val.Length; i++)
+                {
+
+                    if (!int.TryParse(val[i], out n))
+                    {
+                        val[i] = val[i].ToUpper();
+                        switch (val[i])
+                        {
+                            case "A": val[i] = "10"; break;
+                            case "B": val[i] = "11"; break;
+                            case "C": val[i] = "12"; break;
+                            case "D": val[i] = "13"; break;
+                            case "E": val[i] = "14"; break;
+                            case "F": val[i] = "15"; break;
+                            default: throw new Exception("Недопустимый символ");
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < val.Length; i++)
+            {
+                result += Convert.ToInt32(val[i]) * Convert.ToInt32(Math.Pow(base_value, val.Length - i - 1));
+            }
+            return result;
+        }
+
+        public static string translatorToP(int value, int base_value)
+        {
+            string result = "";
+            string remainder;
+
+            if (base_value > 10)
+            {
+                while (value != 0)
+                {
+                    remainder = Convert.ToString(value % base_value);
+
+                    switch (remainder)
+                    {
+                        case "10": remainder = "A"; break;
+                        case "11": remainder = "B"; break;
+                        case "12": remainder = "C"; break;
+                        case "13": remainder = "D"; break;
+                        case "14": remainder = "E"; break;
+                        case "15": remainder = "F"; break;
+                        default: break;
+                    }
+
+                    result = remainder + result;
+                    value /= base_value;
+                }
+            }
+            else
+            {
+                while (value != 0)
+                {
+                    remainder = Convert.ToString(value % base_value);
+                    result = remainder + result;
+                    value /= base_value;
+                }
+            }
+
+            
+            return result;
+        }
+
+        public static string operator +(PNumber a, PNumber b)
+        {
+            if (a.base_value != b.base_value)
+                throw new Exception("Нет возможности складывать числа с разной системой счисления");
+
+            int data1 = translatorTo10(a.value, a.base_value);
+            int data2 = translatorTo10(b.value, b.base_value);
+
+            return translatorToP(data1 + data2, a.base_value);
+        }
+
+        public static string operator -(PNumber a, PNumber b)
+        {
+            if (a.base_value != b.base_value)
+                throw new Exception("Нет возможности вычитать числа с разной системой счисления");
+
+            int data1 = translatorTo10(a.value, a.base_value);
+            int data2 = translatorTo10(b.value, b.base_value);
+
+            return translatorToP(data1 - data2, a.base_value);
+        }
+
+        public static string operator *(PNumber a, PNumber b)
+        {
+            if (a.base_value != b.base_value)
+                throw new Exception("Нет возможности умножать числа с разной системой счисления");
+
+            int data1 = translatorTo10(a.value, a.base_value);
+            int data2 = translatorTo10(b.value, b.base_value);
+
+            return translatorToP(data1 * data2, a.base_value);
+        }
+
+        public static string operator /(PNumber a, PNumber b)
+        {
+            if (a.base_value != b.base_value)
+                throw new Exception("Нет возможности делить числа с разной системой счисления");
+
+            int data1 = translatorTo10(a.value, a.base_value);
+            int data2 = translatorTo10(b.value, b.base_value);
+
+            return translatorToP(data1 / data2, a.base_value);
+        }
+
+        private static string[] SplitString(string value)
+        {
+            string[] result = new string[value.Length];
+            for (int i = 0; i < value.Length; i++)
+            {
+                result[i] = Convert.ToString(value[i]);
+            }
+
+            return result;
+        }
 
 
         public override string ToString()
