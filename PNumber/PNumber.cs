@@ -20,6 +20,7 @@ namespace PNumber
 
 
             if (this.base_value > 16 || this.base_value < 2) throw new Exception("Недопустимый диаппозон основания числа");
+            //дублирование кода!!!!
         }
 
         public PNumber(int value, int base_value, int accuracy)
@@ -30,6 +31,16 @@ namespace PNumber
 
             if (this.base_value > 16 || this.base_value < 2) throw new Exception("Недопустимый диаппозон основания числа");
         }
+
+
+
+        public PNumber Copy()
+        {
+            return new PNumber(Convert.ToString(this.value), Convert.ToString(this.base_value), Convert.ToString(this.accuracy));
+        }
+
+
+
 
         public override string ToString()
         {
