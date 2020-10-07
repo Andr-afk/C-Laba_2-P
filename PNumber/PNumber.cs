@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PNumber
+
+namespace PNumber_test
 {
-    class PNumber
+    public class PNumber
     {
         string valueNumber;
         int base_value;
@@ -226,11 +223,13 @@ namespace PNumber
                     result_fractional += x;
                 }
             }
-           
-            return String.Format("{0},{1}", result_integer, result_fractional);
+
+            if (accuracy > 0) return String.Format("{0},{1}", result_integer, result_fractional);
+            else return result_integer;
+
         }
 
-        public static string operator +(PNumber a, PNumber b)
+        public static PNumber operator +(PNumber a, PNumber b)
         {
             if (a.base_value != b.base_value)
                 throw new Exception("Нет возможности складывать числа с разной системой счисления");
@@ -238,10 +237,12 @@ namespace PNumber
             double data1 = translatorTo10(a.valueNumber, a.base_value, a.accuracy);
             double data2 = translatorTo10(b.valueNumber, b.base_value, a.accuracy);
 
-            return translatorToP(data1 + data2, a.base_value, a.accuracy);
+            string valueNumber = translatorToP(data1 + data2, a.base_value, a.accuracy);
+
+            return new PNumber(valueNumber, Convert.ToString(a.base_value), Convert.ToString(a.accuracy));
         }
 
-        public static string operator -(PNumber a, PNumber b)
+        public static PNumber operator -(PNumber a, PNumber b)
         {
             if (a.base_value != b.base_value)
                 throw new Exception("Нет возможности вычитать числа с разной системой счисления");
@@ -249,10 +250,12 @@ namespace PNumber
             double data1 = translatorTo10(a.valueNumber, a.base_value, a.accuracy);
             double data2 = translatorTo10(b.valueNumber, b.base_value, b.accuracy);
 
-            return translatorToP(data1 - data2, a.base_value, a.accuracy);
+            string valueNumber = translatorToP(data1 - data2, a.base_value, a.accuracy);
+
+            return new PNumber(valueNumber, Convert.ToString(a.base_value), Convert.ToString(a.accuracy)); ;
         }
 
-        public static string operator *(PNumber a, PNumber b)
+        public static PNumber operator *(PNumber a, PNumber b)
         {
             if (a.base_value != b.base_value)
                 throw new Exception("Нет возможности умножать числа с разной системой счисления");
@@ -260,10 +263,12 @@ namespace PNumber
             double data1 = translatorTo10(a.valueNumber, a.base_value, a.accuracy);
             double data2 = translatorTo10(b.valueNumber, b.base_value, b.accuracy);
 
-            return translatorToP(data1 * data2, a.base_value, a.accuracy);
+            string valueNumber = translatorToP(data1 * data2, a.base_value, a.accuracy);
+
+            return new PNumber(valueNumber, Convert.ToString(a.base_value), Convert.ToString(a.accuracy));
         }
 
-        public static string operator /(PNumber a, PNumber b)
+        public static PNumber operator /(PNumber a, PNumber b)
         {
             if (a.base_value != b.base_value)
                 throw new Exception("Нет возможности делить числа с разной системой счисления");
@@ -271,14 +276,18 @@ namespace PNumber
             double data1 = translatorTo10(a.valueNumber, a.base_value, a.accuracy);
             double data2 = translatorTo10(b.valueNumber, b.base_value, b.accuracy);
 
-            return translatorToP(data1 / data2, a.base_value, a.accuracy);
+            string valueNumber = translatorToP(data1 / data2, a.base_value, a.accuracy);
+
+            return new PNumber(valueNumber, Convert.ToString(a.base_value), Convert.ToString(a.accuracy));
         }
 
-        public string Square()
+        public PNumber Square()
         {
             double data1 = translatorTo10(this.valueNumber, this.base_value, this.accuracy);
 
-            return translatorToP(data1 * data1, this.base_value, this.accuracy);
+            string valueNumber = translatorToP(data1 + data1, this.base_value, this.accuracy);
+
+            return new PNumber(valueNumber, Convert.ToString(this.base_value), Convert.ToString(this.accuracy));
         }
 
         public PNumber ConvertPnumber()
@@ -323,7 +332,7 @@ namespace PNumber
             foreach(char i in input_string)
             {
                 int char_number = Convert.ToInt32(i);
-                if (!((char_number >= 48 && char_number <=57) ||(char_number >= 65 && char_number <= 70)))
+                if (!((char_number >= 48 && char_number <=57) ||(char_number >= 65 && char_number <= 70) || char_number != 76))
                 {
                     throw new Exception("Недопустимый символ: " + i);
                 }
