@@ -10,7 +10,7 @@ namespace PNumber_test
     {
         static void Main(string[] args)
         {
-            PNumber a = new PNumber("10001,34","5", "20");
+            PNumber a = new PNumber("10081,34","5", "20");
             PNumber b = new PNumber("11112311,32", "5", "2");
 
             Console.WriteLine(a / b);

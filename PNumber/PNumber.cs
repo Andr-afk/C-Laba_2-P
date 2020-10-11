@@ -11,7 +11,7 @@ namespace PNumber_test
 
         public PNumber(string value, string base_value, string accuracy)
         {
-            this.valueNumber = IfCorrectNumber(value);
+            this.valueNumber = IfCorrectNumber(value, Convert.ToInt32(base_value));
             this.base_value = checkInputData(base_value);
             this.accuracy = checkInputData(accuracy);
 
@@ -326,9 +326,10 @@ namespace PNumber_test
             return outputValue;
         }
         
-        private string IfCorrectNumber(string input_string)
+        private string IfCorrectNumber(string input_string, int base_value)
         {
             input_string = input_string.ToUpper();
+            
 
             foreach(char i in input_string)
             {
@@ -337,6 +338,9 @@ namespace PNumber_test
                 {
                     throw new Exception("Недопустимый символ: " + i);
                 }
+                int digit = Convert.ToInt32(i - '0');
+
+                if (digit >= base_value) throw new Exception("Разряд числа не может быть больше или равен системе счисления. Ошибочный разряд: " + digit);
             }
 
             return input_string;
