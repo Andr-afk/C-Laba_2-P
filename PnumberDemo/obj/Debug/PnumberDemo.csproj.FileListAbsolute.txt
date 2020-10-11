@@ -1,0 +1,13 @@
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PnumberDemo.exe.config
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PnumberDemo.exe
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PnumberDemo.pdb
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PNumber.exe
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PNumber.pdb
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\bin\Debug\PNumber.exe.config
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.csprojAssemblyReference.cache
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.Form1.resources
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.Properties.Resources.resources
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.csproj.GenerateResource.cache
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.csproj.CopyComplete
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.exe
+C:\Users\Andrey\Desktop\funny_sheet\CS\Laba_2\PNumber\PnumberDemo\obj\Debug\PnumberDemo.pdb

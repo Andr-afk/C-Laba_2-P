@@ -224,6 +224,7 @@ namespace PNumber_test
                 }
             }
 
+            if (result_integer == "") result_integer = "0";
             if (accuracy > 0) return String.Format("{0},{1}", result_integer, result_fractional);
             else return result_integer;
 
