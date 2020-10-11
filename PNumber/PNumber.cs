@@ -164,6 +164,14 @@ namespace PNumber_test
             string result_integer = "";
             string result_fractional = "";
             string remainder;
+            bool ifNegativeNumber;
+
+            if (value < 0)
+            {
+                ifNegativeNumber = true;
+                value *= -1;
+            }
+            else ifNegativeNumber = false;
 
             double integer_number = Math.Truncate(value);
             double fractional_number = value - integer_number;
@@ -225,6 +233,7 @@ namespace PNumber_test
             }
 
             if (result_integer == "") result_integer = "0";
+            if (ifNegativeNumber) result_integer = "-" + result_integer;
             if (accuracy > 0) return String.Format("{0},{1}", result_integer, result_fractional);
             else return result_integer;
 
@@ -250,6 +259,8 @@ namespace PNumber_test
 
             double data1 = translatorTo10(a.valueNumber, a.base_value, a.accuracy);
             double data2 = translatorTo10(b.valueNumber, b.base_value, b.accuracy);
+
+
 
             string valueNumber = translatorToP(data1 - data2, a.base_value, a.accuracy);
 
@@ -338,9 +349,7 @@ namespace PNumber_test
                 {
                     throw new Exception("Недопустимый символ: " + i);
                 }
-                int digit = Convert.ToInt32(i - '0');
 
-                if (digit >= base_value) throw new Exception("Разряд числа не может быть больше или равен системе счисления. Ошибочный разряд: " + digit);
             }
 
             return input_string;
